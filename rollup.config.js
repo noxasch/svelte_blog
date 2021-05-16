@@ -4,16 +4,17 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-import { sass } from 'svelte-preprocess-sass';
 import alias from '@rollup/plugin-alias';
+import sveltePreprocess from 'svelte-preprocess';
+import autoprefixer from 'autoprefixer';
 
 const production = !process.env.ROLLUP_WATCH;
 
 const aliases = alias({
 	resolve: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss', '.svelte'],
 	entries: [
-		{ find: '$src', replacement: `${__dirname}/src/` },
-		{ find: '$lib', replacement: `${__dirname}/src/lib/` },
+		{ find: '$src', replacement: `${__dirname}/src` },
+		{ find: '$lib', replacement: `${__dirname}/src/lib` },
 	],
 });
 
@@ -53,8 +54,20 @@ export default {
 				// enable run-time checks when not in production
 				dev: !production
 			},
-			preprocess: {
-				style: sass(),
+			preprocess: sveltePreprocess({
+				sass: true,
+				scss: true,
+				sourceMap: !production,
+				postcss: {
+					plugins: [autoprefixer()],
+				}
+			}),
+			onwarn: (warning, handler) => {
+				// e.g. don't warn on <marquee> elements, cos they're cool
+				if (warning.code.includes('a11y')) return;
+
+				// let Rollup handle all other warnings normally
+				handler(warning);
 			}
 		}),
 		// we'll extract any component CSS out into
