@@ -1,0 +1,10 @@
+.heading, .title {
+  display: block;
+  color: var(--color-text-heading);
+  margin-bottom: 1rem;
+  font-family: var(--font-family-serif);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-text-heading-dark);
+  }
+}

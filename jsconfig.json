@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "$src/*": ["./src/*"],
+      "$lib/*": ["./src/lib/*"],
+      "$stores/*": ["./src/stores/*"]
+    },
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

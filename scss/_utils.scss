@@ -1,0 +1,16 @@
+.container {
+  margin: 0 auto;
+  max-width: calc(100% - 200px);
+
+  @media (max-width: 1024px) {
+    max-width: calc(100% - 80px);
+  }
+
+  @media (max-width: 600px) {
+    max-width: calc(100% - 40px);
+  }
+
+  @media (min-width: 1700px) {
+    max-width: 1650px;
+  }
+}

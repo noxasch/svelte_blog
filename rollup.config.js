@@ -15,6 +15,7 @@ const aliases = alias({
 	entries: [
 		{ find: '$src', replacement: `${__dirname}/src` },
 		{ find: '$lib', replacement: `${__dirname}/src/lib` },
+		{ find: '$stores', replacement: `${__dirname}/src/stores`},
 	],
 });
 

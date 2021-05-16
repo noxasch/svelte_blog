@@ -1,0 +1,143 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+  box-sizing: inherit;
+  vertical-align: baseline;
+  line-height: 1.15; /* fix line height in all browser */
+}
+
+/* prevent ios font size adjustment after orientation change  */
+html { 
+  -webkit-text-size-adjust: 100%; 
+  font-family:  sans-serif;
+  box-sizing: border-box;
+  font-size: 62.5%; // reset rem to 10px
+}
+
+body {
+  font-size: 1.6rem; // reset font-size back to original font size
+}
+
+/* HTML5 element on older browser old IE 8/9/10/11 and opld Firefox */
+article, aside, details, figcaption, figure, footer,
+header, hgroup, menu, nav, section, summary, main {
+  display: block;
+}
+
+summary { display: list-item; }
+
+audio, canvas, progress, video {
+  display: inline-block; /* fixed for IE8/9 */
+  vertical-align: baseline; /* normalize vertical align in chrome, firefox, and opera */
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+blockquote, q { quotes: none; }
+blockquote::before, blockquote::after, q::before, q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+pre, code, kbd, samp {
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New; /* affect all browser*/
+  font-size: 1em; /* standardize default font size in all browser */
+}
+
+pre { overflow: auto; } /* trigger scrollbar when to wide for its container */
+
+hr {
+  box-sizing: content-box; /* correct box sizing in all browser */
+  height: 0;
+  overflow: visible; /* show the overflow in Edge and IE */
+}
+
+
+/* text level reset */
+h1 { font-size: 3.2rem; } /* correct font weight on all browser */
+
+b, strong { font-weight: bold; }
+
+small { font-size: 0.8em; }
+
+sub, sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub { bottom: -0.25em; }
+sup { top: -0.25em; }
+
+a:active, a:hover { outline: 0; } /* improve readability when active and hover in all browser */
+a { background-color: transparent; } /* remove gray bg in IE10*/
+
+a { 
+  text-decoration: none; 
+  color: inherit;
+  cursor: pointer;
+}
+
+a:hover { color:inherit; text-decoration: underline; }
+a:visited { color: inherit; }
+
+abbr { 
+  text-decoration: underline;
+  text-decoration: underline dotted; 
+}
+
+dfn { font-style: italic; }
+
+img { border-style: none; } /* ?remove border in IE10 */
+
+button { border: none; cursor: pointer; }
+button, input { overflow: visible; } /* show overflow in edge and IE */
+button, input, select { border: 1px solid #ccc; } /* consistent border on all browser */
+// button, input, select { border: 0; } /* consistent border on all browser */
+button, select { text-transform: none;} /* Firefox inheritance */
+
+/* Fix the inability to style clickable types in iOS and Safari*/
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* Fix the inability to style clickable types in iOS and Safari*/
+  font: inherit; /* Change font properties to `inherit` in Safari.*/
+}
+
+/* chrome cursor style of increment and decrement button */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield; /* correct odd appearance in chrome and safari */
+  outline-offset: -2px; /* fixed outline in safari */
+}
+
+/* remove inner padding */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea { overflow: auto; } /* remove default scrollbar in IE10+ */
+
+/* this is really based on your needs and opinion - maybe place this in main css file */
+ol, ul { list-style: none; }
