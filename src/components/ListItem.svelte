@@ -1,15 +1,25 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   export let url;
   export let title;
   export let date = new Date.now();
+
+  const dispatch = createEventDispatcher();
   
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   let formattedDate = date.toLocaleDateString("en-US", options);
   let readTime = '9 min read';
+
+  function onOpenPost() {
+    const index = parseInt(event.target.dataset.id);
+    dispatch('openPost', {
+      
+    });
+  }
 </script>
 
 <li class="list__item">
-  <a href="{url}">
+  <a  href="{url}" on:click|preventDefault={onOpenPost}>
     <h4 class="item__title title">{title}</h4>
   </a>
   <span class="item__date">{formattedDate}  • {readTime}</span>

@@ -4,5 +4,5 @@
 </script>
   
 <Content>
-  <ListGroup />
+  <ListGroup on:openPost />
 </Content>

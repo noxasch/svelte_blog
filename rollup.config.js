@@ -7,8 +7,15 @@ import css from 'rollup-plugin-css-only';
 import alias from '@rollup/plugin-alias';
 import sveltePreprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
+import { svelteShiki } from "svelte-shiki";
 
 const production = !process.env.ROLLUP_WATCH;
+
+// default
+const shikiOptions = {
+	theme: "nord",
+	langs: "bash"
+}
 
 const aliases = alias({
 	resolve: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss', '.svelte'],
@@ -55,14 +62,17 @@ export default {
 				// enable run-time checks when not in production
 				dev: !production
 			},
-			preprocess: sveltePreprocess({
-				sass: true,
-				scss: true,
-				sourceMap: !production,
-				postcss: {
-					plugins: [autoprefixer()],
-				}
-			}),
+			preprocess: [
+				sveltePreprocess({
+					sass: true,
+					scss: true,
+					sourceMap: !production,
+					postcss: {
+						plugins: [autoprefixer()],
+					},
+				}),
+				svelteShiki(shikiOptions)
+			],
 			onwarn: (warning, handler) => {
 				// e.g. don't warn on <marquee> elements, cos they're cool
 				if (warning.code.includes('a11y')) return;

@@ -1,8 +1,10 @@
 <script>
   import { pages } from "$stores/pageStore";
 	import { currentActivePage } from "$stores/activePageStore";
+  import Post from '$src/pages/Post.svelte';
   
-  $: activePage =  $pages.find((page) => page.id === $currentActivePage).component;
+  $: page = $pages.find((page) => page.id === $currentActivePage);
+  $: activePage =  (page == undefined) ? Post : page.component;
   function onSelectItem(id) {
     currentActivePage.update(() => id);
   }

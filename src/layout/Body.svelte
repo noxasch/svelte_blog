@@ -1,4 +1,8 @@
-<div class="container main">
+<script>
+  export let className = '';
+</script>
+
+<div class="container main {className}">
   <slot></slot>
 </div>
 
@@ -11,10 +15,19 @@
   // grid-auto-columns: minmax(100px, auto);
   column-gap: 1rem;
   grid-gap: 1rem;
+  align-items: center;
 
   @media (max-width: 800px){
     display: block;
     padding: 0;
   }
 }
+
+.post {
+    border-top: 1px solid var(--color-line);
+
+    @media (prefers-color-scheme: dark){
+        border-color: #414141;
+    }
+  }
 </style>

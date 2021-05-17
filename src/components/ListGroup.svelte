@@ -32,6 +32,6 @@
 
 <ul>
   {#each posts as post}
-    <ListItem title={post.title} {...post} />
+    <ListItem title={post.title} {...post} on:openPost />
   {/each}
 </ul>
