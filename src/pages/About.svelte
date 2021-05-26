@@ -1,11 +1,8 @@
 <script>
   import { scale } from "svelte/transition";
-
-
 </script>
 
 <svelte:head>
-
   <script src="https://unpkg.com/@codersrank/summary@x.x.x/codersrank-summary.min.js"></script>
   <script src="https://unpkg.com/@codersrank/timeline@x.x.x/codersrank-timeline.min.js"></script>
   <script src="https://unpkg.com/@codersrank/activity@x.x.x/codersrank-activity.min.js"></script>
@@ -52,6 +49,7 @@
 </div>
 
 <style lang="scss">
+
   codersrank-summary {
     --bg-color: #333;
     --header-bg-color: #1a1a1a;
@@ -131,7 +129,5 @@
     padding: 10px;
     margin: 80px 0;
     grid-column: 1/ span 12;
-  }
-
-  
+  }  
 </style>
